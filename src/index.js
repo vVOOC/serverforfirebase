@@ -26,6 +26,7 @@ app.use((req, res) => {
 const server = createServer();
 
 server.on("request", (req, res) => {
+	res.removeHeader("X-Frame-Options");
 	res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
 	res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
 	app(req, res);
